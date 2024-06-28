@@ -32,7 +32,7 @@ def I_gradient(numpy_image, baseline_image, model, attr_objective, fold, interp=
         target.backward()
         grad = img_tensor.grad.numpy()
         grad_list[i] = grad
-        result_list.append(result)
+        result_list.append(result.cpu())
     results_numpy = np.asarray(result_list)
     return grad_list, results_numpy, interpolated
 
